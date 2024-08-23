@@ -54,9 +54,6 @@ Clonez le projet
 ```
 git clone https://github.com/ArthurRochette/OAR.git
 ```
-<li>
-    Par default OAR se lance sur le port 80 de votre machine, vous pouvez changer le port par défaut, ligne 6, dans docker-compose.yml (par exemple: 8000:80 pour lancer sur le port 8000).
-</li>
 
 <li>
 Utilisez la commande compose à la racine du projet.
@@ -65,6 +62,9 @@ Utilisez la commande compose à la racine du projet.
 ```
 docker compose up -d 
 ```
+
+> [!TIP]
+> Par défaut OAR se lance sur le port 80 de votre machine, vous pouvez changer le port par défaut, ligne 6, dans docker-compose.yml (par exemple: 8000:80 pour lancer sur le port 8000).
 
 <li>
 Vous pouvez accéder à OAR dans votre navigateur avec <a href="http://localhost/">http://localhost/</a> ( ou  <a href="http://localhost:8000/">http://localhost:8000/</a> si vous avez mis le port 8000 )
@@ -76,7 +76,7 @@ Vous pouvez accéder à OAR dans votre navigateur avec <a href="http://localhost
 Une version de la base de données utilisée au Centre Oscar Lambret se trouve dans le dossier oar/restore.<br> Lors de son premier lancement, le projet régénérera automatiquement la base de données. Un super utilisateur est présent, avec l'identifiant "root" et le mot de passe par défaut "toor".
 
 ### Utiliser ma propre base de données 
-Si vous ne voulez pas l'utiliser, vous pouvez retirer la sauvegarde du dossier oar/restore avant de démarrer le serveur. Si vous avez besoin mettre à zéro votre base de données, vous pouvez utiliser la commande ``` python manage.py flush ```
+Si vous ne voulez pas l'utiliser, vous pouvez retirer la sauvegarde du dossier oar/restore avant de démarrer le serveur. Si vous avez besoin de mettre à zéro votre base de données, vous pouvez utiliser la commande ``` python manage.py flush ```
 
 ### Installation Legacy
 Si vous ne souhaitez pas utiliser docker, vous pouvez intaller OAR de la manière suivante.<br>
@@ -86,7 +86,7 @@ Puis lancez le serveur avec ``` python manage.py runserver ```.
 
 ## Utilisation
 ### Interface Web
-Les indications sont composés de plusieurs éléments:
+Les indications sont composées de plusieurs éléments:
 <ul>
   <li>
     Une localisation
@@ -108,7 +108,7 @@ ou avec l'interface "Admin avancée" qui répertorie tous les objets de OAR.
 Pour créer une indication, il vous faudra d'abord créer les clefs (localisation, fraction, patient, organe) si elles n'existent pas, puis remplir le formulaire avec le bouton "Nouvelle contrainte".
 
 Un quatuor de ces clés permet d'identifier le lot de contrainte et/ou objectif correspondant.<br>
-Chacune des indications du tableau peut être glissée et deposée dans un "pense-bête" qui apparait au glissé, ou en appuyant sur le bouton correspondant.<br>
+Chacune des indications du tableau peut être glissée et deposée dans un "pense-bête" qui apparait au glissé, ou en appuyant sur le bouton du même nom.<br>
 Un système de vues est aussi disponible afin de garder des pré-réglages de filtres. 
 
 ### Intégration au TPS
@@ -124,6 +124,10 @@ OAR est une application web trois couches utilisant <a href="https://www.djangop
   <li>oar_postgres pour postgresql</li>
 </ul>
 La gestion et génération des fiches .CSS sont gérés par le framework <a href="https://tailwindcss.com">Tailwind</a>.
+<br>
+
+> [!CAUTION]
+> .env.dev contient une variable d'environnement SECRET_KEY, pour une sécurité optimale, il est fortement conseillé de changer cette clé.
 
 
 ## Contribution / Contact
