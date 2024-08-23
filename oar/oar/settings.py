@@ -50,13 +50,13 @@ INTERNAL_IPS = [
 
 # Mail
 
-EMAIL_HOST = "smtp.o-lambret.fr"
+EMAIL_HOST = ""
 EMAIL_PORT = 25
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = "OrganesARisque@o-lambret.fr"
-ADMIN_EMAIL = "a-rochette@o-lambret.fr"
+DEFAULT_FROM_EMAIL = ""
+ADMIN_EMAIL = ""
 
 # Application definition
 
