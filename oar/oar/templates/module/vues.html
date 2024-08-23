@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="fixed h-screen bg-gray-100 right-0 z-10 overflow-auto top-0 duration-500 ease-in-out drop-shadow-2xl translate-x-full" style="width: 44%;" id="modal_vues">
+    <div class="w-full my-5 flex flex-row">
+      <div class="text-center m-auto">Mes vues</div>
+      <a class="left-0 hover:cursor-pointer mr-2 p-3 rounded-lg" id="close_bucket"><img src="{% static 'logo/hide.png' %}" class="hover:bg-slate-200" width="30" height="30" title="Close" alt="close" /></a>
+    </div>
+
+    <form class="m-2.5" method="POST">
+      {% csrf_token %}
+      <input name="action" value="REMOVE_VUE" hidden />
+      <table class="w-full [border-spacing:0.75rem]" id="vues_table">
+        <tr class="bg-slate-50">
+          <th class="border-slate-600 p-2.5">
+            <label class="">Aucune vue</label>
+          </th>
+        </tr>
+      </table>
+      <div class="w-full mt-2.5">
+        {% include '../module/button.html' with type='submit' id='add_vue' content='Ajouter' custom='py-1' title='Enregistrer les filtres actuels' custom='p-2' %}
+      </div>
+    </form>
+</div>

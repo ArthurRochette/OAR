@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+{% load tailwind_tags %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>{{ title }}</title>
+    {% tailwind_css %}
+
+</head>
+<body>
+{% load static %}
+<script src="{% static 'accounts/script.js' %}"></script>
+{% include "oar/header.html" %}
+<div class="h-3/4 flex flex-col items-center justify-center">
+    {% if error != "None" %}
+    <div class="bg-red-500 p-5">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="p-5 pt-10 bg-slate-50 rounded-t-md m-15">
+
+    <form action="" class="space-y-4 flex  flex-col" method="post" role="form" id="form_loggin">
+        {% csrf_token %}
+        <input id="login" name="username" placeholder="Utilisateur" type="text"><br>
+        <input id="password" name="password" placeholder="Mot de passe" type="password"><br>
+            {% include "module/button.html" with content="login" id="submit"  %}
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

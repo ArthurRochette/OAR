@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load tailwind_tags %}
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>{{ title }}</title>
+    {% tailwind_css %}
+    <link rel="shortcut icon" sizes="16x16 32x32" type="image/png" href="/static/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+  </head>
+
+  <nav class="flex flex-row bg-blue-duck-oscar w-full justify-between">
+    {% csrf_token %}
+    <input hidden
+      id="is_admin"
+      value="{% if request.user.is_superuser %}True{% else %}False{% endif %}" />
+    <div class="my-auto text-white ml-5 hover:cursor-pointer hover:opacity-50 flex flex-row">
+      <a href="/"><img src="{% static 'ol.png' %}" class="block h-16 %}" /></a>
+      <label class="text-2xl oscar-font ml-2 flex"><a href="/" class="m-auto font-extrabold">Organes à risque</a></label>
+    </div>
+    <div class="my-auto text-white float-right">
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          <div class="flex flex-col float-right my-4 mr-10">
+            <a href="/admin" class="hover:text-gray-300">Bonjour <span id="username" class="font-bold">{{ request.user.username }}</span> !</a>
+            <a href="/logout" class="float-right mr-10 mt-2.5 hover:text-gray-300">Se déconnecter</a>
+          </div>
+        {% else %}
+          <div class="flex flex-col float-right my-4 mr-10">
+            <a>Bonjour <span id="username" class="font-bold">{{ request.user.username }}</span> !</a>
+            <a href="/logout" class="float-right mr-10 mt-2.5 hover:text-gray-300">Se déconnecter</a>
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="flex flex-col float-right my-8 mr-10">
+          <a href="/login">Se connecter</a>
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</html>

@@ -1,0 +1,12 @@
+<!-- Modal {{type}} {{what}}-->
+<div class="invisible max-h-modal bg-white z-3 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-lg border border-slate-600"
+     id="{{type}}_{{what}}_modal">
+    <div class="mx-10 my-5 flex flex-col items-center ">
+        <div class="p-4">
+            Etes vous certain de vouloir supprimer {{what_text}} ?
+        </div>
+        <div class="p-4 flex flex-row justify-between">
+             {% include "module/button_pos_neg.html" with main_type=type|add:"_"|add:what type="submit" button_left="Annuler" button_right="Valider" type="button" %}
+        </div>
+    </div>
+</div>

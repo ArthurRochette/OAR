@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+{% load tailwind_tags %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>{{title}}</title>
+    {% tailwind_css %}
+</head>
+
+<body >
+
+
+{% include "oar/header.html" %}
+
+<div class="h-screen">
+    <div class="flex flex-col justify-center items-center h-full">
+        <h1 class="text-6xl font-bold text-gray-700">404</h1>
+        <h2 class="text-2xl font-bold text-gray-700">La page n'existe pas ou plus</h2>
+        <p>:(</p>
+        <a href="/" class="text-blue-500 hover:text-blue-700">Go back to home</a>
+    </div>
+</div>
+
+{% include "oar/footer.html" %}
+
+</body>
+
+</html>
+

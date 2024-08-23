@@ -1,0 +1,50 @@
+<table class="border p-2.5 w-full mt-2.5" id="loca_frac">
+    <tr class="border border-slate-400 p-2.5 ">
+        <th class="border-r p-2.5 w-1/8">
+            Localisation
+        </th>
+        <td class="border-r p-2.5">
+            <select class="w-full" id="modal_location" name="location" required>
+                {% if default.location %}
+                <option value="{{default.location}}" selected>{{default.location}}</option>
+                {% else %}
+                <option value="" selected></option>
+                {% endif %}
+                {% for l in data.location %}
+                <option value="{{l}}">{{l}}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <th class="border-r p-2.5 w-1/8">
+            Fraction
+        </th>
+        <td class="border-r p-2.5 ">
+            <select class="w-full" id="modal_fraction" name="fraction" required>
+                {% if default.fraction %}
+                <option value="{{default.fraction}}" selected>{{default.fraction}}</option>
+                {% else %}
+                <option  selected value=""></option>
+                {% endif %}
+                {% for l in data.fraction %}
+                <option value="{{l}}">{{l}}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <th class="border-r p-2.5 w-1/8">
+            Patient
+        </th>
+        <td class="p-2.5">
+            <select class="w-full" id="modal_patient" name="patient" required>
+                {% if default.patient %}
+                <option value="{{default.patient}}" selected>{{default.patient}}</option>
+                {% else %}
+                <option selected value=""></option>
+                {% endif %}
+
+                {% for l in data.patient %}
+                <option value="{{l}}">{{l}}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+</table>

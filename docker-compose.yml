@@ -1,0 +1,52 @@
+services:
+  nginx:
+    restart: unless-stopped
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - oar
+    container_name: oar_nginx
+    volumes:
+      - ./static:/static
+      - ./media:/media
+  db:
+    image: postgres:13-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: db_oar
+    volumes:
+      - db_oar:/var/lib/postgresql/data
+  oar:
+    restart: unless-stopped
+    container_name: oar
+    build:
+      context: ./oar
+      dockerfile: Dockerfile
+    expose:
+      - 8000
+    depends_on:
+      - db
+    env_file:
+      - ./.env.dev
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 1m30s
+      timeout: 15s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - ./media:/media
+      - ./oar:/oar
+      - ./backup:/backup
+      - ./other:/other
+      - ./static:/static
+volumes:
+  db_oar:
+    driver: local
+
+
+
+

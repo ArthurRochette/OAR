@@ -1,0 +1,21 @@
+<div class="p-2.5 border m-1" id="{{main_type}}-{{id}}" {% if hidden %} hidden {% endif %}>
+    <div  id="{{type}}-fields-{{id}}" class="mb-2.5">
+
+        <select  {% if disabled %} disabled {% endif %} class="mr-20" id="{{type}}-unit-{{id}}" name="{{type}}-unit-{{id}}" required>
+        </select>
+
+        <input {% if disabled %} disabled {% endif %} class="w-24 appearance-none" id="{{type}}-volume-{{id}}"
+                name="{{type}}-volume-{{id}}"
+                type="number" step="0.0001" value="{{preset.volume}}">
+
+
+        <select {% if disabled %} disabled {% endif %} id="{{type}}-comparison_sym-{{id}}" name="{{type}}-comparison_sym-{{id}}" required>
+        </select>
+        <input {% if disabled %} disabled {% endif %} class="w-24" id="{{type}}-value-{{id}}" name="{{type}}-value-{{id}}"
+                type="number" step="0.0001" value="{{preset.value}}" required>
+
+
+    </div>
+
+    {% include "module/reference.html"  %}
+</div>

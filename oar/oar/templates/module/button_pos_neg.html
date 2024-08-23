@@ -1,0 +1,14 @@
+<div class="flex flex-column " id="buttons_{{main_type}}">
+        <button class="m-3 button-form border p-3 ml-1/2 bg-slate-200  rounded-lg text-s hover:bg-red-400 " title="{{title_left}}"
+            id="button_neg_{{main_type}}-{{id}}"
+            type="button"
+            onclick="{{onclick_left}}">
+        {{button_left|default:"-"}}
+    </button>
+    <button class="m-3 button-form border p-3 ml-1/2 bg-slate-200  rounded-lg text-s hover:bg-green-400" title="{{title_right}}"
+            id="button_pos_{{main_type}}-{{id}}"
+            type="{{type|default:'button'}}"
+            onclick="{{onclick_right}}">
+        {{button_right|default:"+"}}
+    </button>
+</div>

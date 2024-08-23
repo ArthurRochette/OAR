@@ -1,0 +1,17 @@
+node_modules
+.idea
+.vscode
+other/*.pkl
+other/*.json
+other/*.sql
+oar/more.sql
+static_files_oar/*
+backup/*
+media/*
+backup_/*
+oar/venv
+media/
+/static/
+backup/
+**/__pycache__/
+db_oar

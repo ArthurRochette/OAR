@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="pt-1" id="{{type}}-ref-{{id}}">
+
+       <input  id="{{type}}-file-{{id}}" name="{{type}}-file-{{id}}" type="file">
+
+       <input id="{{type}}-url-{{id}}" name="{{type}}-url-{{id}}" placeholder="référence externe"
+           type="text" value="{{preset.reference.url}}">
+       <input id="{{type}}-desc-{{id}}" name="{{type}}-desc-{{id}}" placeholder="description"
+           type="text" value="{{preset.reference.desc}}">
+</div>

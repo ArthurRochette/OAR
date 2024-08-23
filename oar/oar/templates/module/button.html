@@ -1,0 +1,10 @@
+{% load static %}
+
+<button title="{{title}}" class="m-2.5 float-right border p-3  mr-1 {% if bg %} {{bg}} {% else %} bg-gray-200 {% endif %} {% if bghover %} {{bghover}} {% else %} hover:bg-gray-300 {% endif %} rounded-lg {{custom}}"  id="{{id}}" onclick="{{onclick}}">
+        
+        {% if image %}
+                <img class="inline object-cover" height="20" width="20" src="{% static image %}"></img>
+        {% endif %}
+        {{content}}
+
+</button>

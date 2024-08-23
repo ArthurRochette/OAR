@@ -1,0 +1,112 @@
+{% include './header.html' %}
+
+{% load tailwind_tags %}
+{% load static %}
+
+{% load custom_tags %}
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="{% static 'oar/objective.js' %}"></script>
+  <script src="{% static 'oar/indication.js' %}"></script>
+
+  <div class="flex flex-col h-screen justify-between">
+    <!-- Indication -->
+    <div class="flex flex-col">
+      <div class="mb-10 h-fit w-full">
+        <div class="flex flex-column space-around justify-center h-full">
+          <div class="w-full">
+            {% if request.user.is_superuser %}
+              <div class="flex flex-row mt-5 mx-5 items-center">
+                {% include '../module/button.html' with id='modif_indication_button' image='logo/modify.png' content='Modifier' title="Modifier l'indication" %}
+                {% include '../module/button.html' with id='delete_indication_button' image='logo/delete.png' content='Supprimer' bghover='hover:bg-red-500' title="Supprimer l'indication" %}
+                <div class="flex-row m-2.5 items-center hidden" title="Changer l'objectif, la contrainte ou la toxicté affectera les autres indications." name="warning_linked_with">
+                  <img src="{% static 'logo/warning-sign.png' %}" class="object-contain m-2.5" width="50" id="warning" />
+                  <div class="m-2.5">
+                    Cette indication est liée à d'autre(s) indication(s) :<ul id="linked_with_indication_list"></ul>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="w-full grid place-items-center items-start flex-1 h-fit" id="indication">
+              <ul class="list-disc min-h-0 w-2/3">
+                <div class="p-2.5 w-full h-full flex flex-col">
+                  <table class="border w-full rounded-lg m-auto mt-20">
+                    <tr class="border p-2.5 w-full bg-slate-50">
+                      <th class="border-r p-2.5 w-1/8">Localisation</th>
+                      <th class="border-r p-2.5 w-1/8">Fraction</th>
+                      <th class="border-r p-2.5 w-1/8">Patient</th>
+                    </tr>
+                    <tr class="border p-2.5 w-full">
+                      <td class="border-r p-2.5 text-center" id="location_value">{{ data.indication.location }}</td>
+                      <td class="p-2.5 border-r text-center" id="fraction_value">{{ data.indication.fraction }}</td>
+                      <td class="p-2.5 text-center" id="patient_value">{{ data.indication.patient }}</td>
+                    </tr>
+                  </table>
+                  <br />
+                  <table class="border bg-slate-50 w-full table-fixed mt-2.5 m-auto">
+                    <tr class="border-b">
+                      <th class="border-r p-2.5">Organe</th>
+                      <th class="p-2.5">Objectif</th>
+                      <th class="border-r p-2.5">Contrainte</th>
+                      <th class="border-r p-2.5">Toxicité</th>
+                    </tr>
+                    <tr class="borer-b">
+                      <td class="border-r w-full text-center p-2.5" id="organ_value"></td>
+                      <td class="w-full text-center p-2.5" id="objective_value"></td>
+                      <td class="w-full text-center text-red-600 p-2.5" id="constraint_value"></td>
+                      <td class="w-full text-center p-2.5" id="toxicity_value"></td>
+                    </tr>
+                  </table>
+                  <br />
+                  <table class="mt-5 border border-slate-200 w-full">
+                    <tr class="p-2.5">
+                      <th class="border-r p-2.5 w-1/3">Référence</th>
+                      <td class="p-2.5 text-center" id="reference_value">
+                        <a id="main_reference_url" title="" class="hover:text-purple-oscar" target="_blank" href=""></a>
+                        <br />
+                        <a id="main_reference_file" class="hover:text-purple-oscar" target="_blank" target="_blank"></a>
+                        <p id="main_reference_description"></p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Comment section -->
+      <div class="grid place-items-center space-y-16 h-fit" id="comments">
+        {% if request.user.is_authenticated %}
+          <a id="form_anchor" class="w-1/2"></a>
+          <div class="pb-30 w-1/3 h-full flex flex-col !mb-10">
+            <form class="h-1/2 w-full" method="post">
+              <input name="action" type="hidden" value="ADD_COMMENTARY" />
+              <label hidden id="replying">
+                <span class="text-xs"></span>
+                <a id="stop_replying" class="hover:cursor-pointer underline float-right text-sm">Ne plus répondre</a>
+              </label>
+              {% csrf_token %}
+              <input id="isreply" name="isreply" type="hidden" value="" />
+              <textarea class="px-0 w-full text-sm text-gray-900 focus:ring-0 focus:outline-none border border-slate-200 rounded-lg p-2.5" id="commentarea" name="comment"></textarea>
+              {% include 'module/button.html' with id='submitcomment' title='Envoyer message' onclick='submit()' content='Envoyer' custom='float-left' %}
+            </form>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Overlay -->
+    {% include 'module/blur_back.html' %}
+
+    <!-- Modif modale -->
+    {% include 'module/modal_indication.html' %}
+
+    {% include 'module/modalBoolean.html' with what_text='cette indication' what='indication' type='delete' %}
+
+    {% include 'module/modalBoolean.html' with what_text='ce commentaire' what='comment' type='delete' %}
+
+    {% include './footer.html' %}
+  </div>
+</body>

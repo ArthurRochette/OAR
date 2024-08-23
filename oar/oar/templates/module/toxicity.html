@@ -1,0 +1,18 @@
+<div id="{{main_type}}" class="m-2.5 border" {% if hidden %} hidden {% endif %} >
+    <label class="m-2.5 flex flex-row items-center" id="{{main_type}}-labels">
+        Toxicité pour: <pre>     </pre>
+            <div class="flex flex-col">
+                
+                <label id="{{main_type}}-intro_objective">Objectif </label>
+                <label id="{{main_type}}-intro_constraint">Contrainte </label>
+
+            </div>
+        
+    </label>
+    
+    <input   class="w-1/12 m-2.5" name="value" id="value" type="number" step="0.01" value=""> 
+   <label class="m-2.5">
+        % de
+   </label>
+    <input   class="m-2.5" name="description" id="description" type="text" value="">
+</div>
