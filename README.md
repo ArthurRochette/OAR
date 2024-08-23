@@ -54,9 +54,6 @@ Clonez le projet
 ```
 git clone https://github.com/ArthurRochette/OAR.git
 ```
-<li>
-    Par default OAR se lance sur le port 80 de votre machine, vous pouvez changer le port par défaut, ligne 6, dans docker-compose.yml (par exemple: 8000:80 pour lancer sur le port 8000).
-</li>
 
 <li>
 Utilisez la commande compose à la racine du projet.
@@ -65,6 +62,9 @@ Utilisez la commande compose à la racine du projet.
 ```
 docker compose up -d 
 ```
+
+> [!TIP]
+> Par défaut OAR se lance sur le port 80 de votre machine, vous pouvez changer le port par défaut, ligne 6, dans docker-compose.yml (par exemple: 8000:80 pour lancer sur le port 8000).
 
 <li>
 Vous pouvez accéder à OAR dans votre navigateur avec <a href="http://localhost/">http://localhost/</a> ( ou  <a href="http://localhost:8000/">http://localhost:8000/</a> si vous avez mis le port 8000 )
