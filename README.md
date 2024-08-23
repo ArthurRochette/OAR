@@ -86,7 +86,7 @@ Puis lancez le serveur avec ``` python manage.py runserver ```.
 
 ## Utilisation
 ### Interface Web
-Les indications sont composés de plusieurs éléments:
+Les indications sont composées de plusieurs éléments:
 <ul>
   <li>
     Une localisation
