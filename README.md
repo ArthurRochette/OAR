@@ -76,7 +76,7 @@ Vous pouvez accéder à OAR dans votre navigateur avec <a href="http://localhost
 Une version de la base de données utilisée au Centre Oscar Lambret se trouve dans le dossier oar/restore.<br> Lors de son premier lancement, le projet régénérera automatiquement la base de données. Un super utilisateur est présent, avec l'identifiant "root" et le mot de passe par défaut "toor".
 
 ### Utiliser ma propre base de données 
-Si vous ne voulez pas l'utiliser, vous pouvez retirer la sauvegarde du dossier oar/restore avant de démarrer le serveur. Si vous avez besoin mettre à zéro votre base de données, vous pouvez utiliser la commande ``` python manage.py flush ```
+Si vous ne voulez pas l'utiliser, vous pouvez retirer la sauvegarde du dossier oar/restore avant de démarrer le serveur. Si vous avez besoin de mettre à zéro votre base de données, vous pouvez utiliser la commande ``` python manage.py flush ```
 
 ### Installation Legacy
 Si vous ne souhaitez pas utiliser docker, vous pouvez intaller OAR de la manière suivante.<br>
