@@ -108,7 +108,7 @@ ou avec l'interface "Admin avancée" qui répertorie tous les objets de OAR.
 Pour créer une indication, il vous faudra d'abord créer les clefs (localisation, fraction, patient, organe) si elles n'existent pas, puis remplir le formulaire avec le bouton "Nouvelle contrainte".
 
 Un quatuor de ces clés permet d'identifier le lot de contrainte et/ou objectif correspondant.<br>
-Chacune des indications du tableau peut être glissée et deposée dans un "pense-bête" qui apparait au glissé, ou en appuyant sur le bouton correspondant.<br>
+Chacune des indications du tableau peut être glissée et deposée dans un "pense-bête" qui apparait au glissé, ou en appuyant sur le bouton du même nom.<br>
 Un système de vues est aussi disponible afin de garder des pré-réglages de filtres. 
 
 ### Intégration au TPS
