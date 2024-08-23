@@ -124,6 +124,9 @@ OAR est une application web trois couches utilisant <a href="https://www.djangop
   <li>oar_postgres pour postgresql</li>
 </ul>
 La gestion et génération des fiches .CSS sont gérés par le framework <a href="https://tailwindcss.com">Tailwind</a>.
+<br>
+> [!CAUTION]
+> .env.dev contient une variable d'environnement SECRET_KEY, pour une sécurité optimale, il est fortement conseillé de changer cette clé.
 
 
 ## Contribution / Contact
